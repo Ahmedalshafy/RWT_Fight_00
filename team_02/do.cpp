@@ -7,7 +7,7 @@
 
 int countWordsThatMakeYouHappy(const std::string& sentence) {
     std::unordered_set<std::string> happyWords = {
-        "love", "joy", "peace", "happy", "smile", "grateful", "kind", "hope", "laugh", "sunshine"
+        "love", "joy", "peace", "happy", "smile", "grateful", "kind", "hope", "laugh", "sunshine", "happiness"
     };
 
     std::istringstream iss(sentence);
@@ -29,7 +29,7 @@ int countWordsThatMakeYouHappy(const std::string& sentence) {
 }
 
 int main() {
-    std::string testSentence = "I love the sunshine and feel happy today!";
+    std::string testSentence = "I love the sunshine and feel happy today ! happiness ";
     int result = countWordsThatMakeYouHappy(testSentence);
     std::cout << "Found " << result << " happy words in: \"" << testSentence << "\"" << std::endl;
     return 0;
