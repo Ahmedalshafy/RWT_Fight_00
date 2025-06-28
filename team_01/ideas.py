@@ -1,4 +1,16 @@
 import random
+import flask
+
+app = flask.Flask(__name__)
+
+@app.route("/")
+def index():
+    return "Hello, World!"
+
+@app.route("/idea")
+def idea():
+    return generate_idea_brainstorm("climate change")
+
 
 def generate_idea_brainstorm(topic):
     taglines = [
@@ -31,3 +43,5 @@ def generate_idea_brainstorm(topic):
         "analogies": random.sample(analogies, 2),
         "questions": random.sample(questions, 2)
     }
+    
+app.run(debug=True, port=5000)
