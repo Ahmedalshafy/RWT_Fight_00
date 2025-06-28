@@ -5,12 +5,12 @@ app = flask.Flask(__name__)
 
 @app.route("/")
 def index():
-    return "Hello, World!"
+    return flask.render_template('index.html')
 
 @app.route("/idea")
 def idea():
-    return generate_idea_brainstorm("climate change")
-
+    topic = flask.request.args.get('topic', 'climate change')
+    return flask.jsonify(generate_idea_brainstorm(topic))
 
 def generate_idea_brainstorm(topic):
     taglines = [
